@@ -1,0 +1,1215 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Policy Center</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 237, 214, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(249, 228, 188, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="dfbaf384-d063-404d-8227-f9902299c131" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1566837945700-30057527ade0?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/snippet_red.svg"/></div><h1 class="page-title">Policy Center</h1><p class="page-description"></p></header><div class="page-body"><div id="41506d53-33b8-46ae-a548-7c8d79adc2be" class="column-list"><div id="8956bfdf-3fa7-4f9f-bfb7-1a638cb3d001" style="width:33.333333333333336%" class="column"><h3 id="05529632-a992-4cf5-947b-b6e321c5b0ee" class="">Information</h3><hr id="fec2a8e9-952c-46d6-ad32-a8891a2a086c"/><p id="6fd04a61-305e-402d-97f6-fd8d7e93891b" class=""><mark class="highlight-blue"><strong><a href="https://dev.azure.com/SuraColombia/Gerencia_Tecnologia/_git/aseguramiento-policy_center-ml/pullrequests?_a=completed&amp;createdBy=5852e332-e363-61bd-a901-f9808abe9999">Policy Pull Requests</a></strong></mark></p><p id="0aa1c0bb-b85a-40ac-88a7-8cf6ce5f0895" class=""><mark class="highlight-blue"><strong><a href="https://dev.azure.com/SuraColombia/Gerencia_Tecnologia/_git/aseguramiento-billing_center-ml/pullrequests?_a=completed&amp;createdBy=5852e332-e363-61bd-a901-f9808abe9999">Billing Pull Requests</a></strong></mark></p><p id="638d695e-6aaf-43fa-8fbb-75bb1e907f9c" class=""><mark class="highlight-blue"><strong><a href="https://dev.azure.com/SuraColombia/Gerencia_Tecnologia/_build?definitionId=1397&amp;view=runs">Azure Policy Pipeline</a></strong></mark></p><p id="9c22a817-156c-46b6-86be-ac77f9fc863e" class=""><mark class="highlight-blue"><strong><a href="https://dev.azure.com/SuraColombia/Gerencia_Tecnologia/_build?definitionId=1245">Azure Billing Pipeline</a></strong></mark></p><p id="ee197025-aa35-4f12-a546-832348132972" class=""><mark class="highlight-blue"><strong><a href="https://suramericana.sharepoint.com/:x:/r/sites/COREGW-Generales/_layouts/15/doc2.aspx?action=edit&amp;sourcedoc=%7Bb54c7cf9-fa33-40c2-8e69-2901dea696ef%7D&amp;wdOrigin=TEAMS-ELECTRON.teamsSdk.openFilePreview&amp;wdExp=TEAMS-CONTROL&amp;web=1&amp;cid=1f76797a-1dab-4e4f-9f05-a95dea8c17c5">UAT Promotions</a></strong></mark></p><p id="7b24c439-6608-4363-8318-6bd57bcf3099" class=""><mark class="highlight-blue"><strong><a href="https://forms.office.com/pages/responsepage.aspx?id=_tQLPBERE02ODHwzuet1gXI9VZj5T5pGrTE1Jr0EGlJUNU5JRFFEUkZFTE1MMVNaQ0FDRkNQOE80Ni4u">CAI Form</a></strong></mark></p><p id="f6db804e-84de-44cf-893a-b2a22c13dd4c" class="">
+</p><p id="b594d1bc-f63f-445e-937a-25c07cae2624" class="">
+</p></div><div id="cae44352-6b83-41d7-9c6a-02bba162a93c" style="width:33.333333333333336%" class="column"><h3 id="a35039c7-4c78-4505-99a7-1ddf936cf2d6" class="">Tools</h3><hr id="f1b15c6a-a9fd-4a76-b916-512b03410971"/><p id="36f79ebe-5f48-43d5-b5fc-738a51a72d94" class=""><mark class="highlight-blue"><strong><a href="https://drive.google.com/drive/u/0/folders/1iZihHS-aGl7Lskejiw_gxwNMqiSP04g1">Core Business Sessions</a></strong></mark></p><p id="29849914-1d45-4e93-b604-ea4947b6a7e9" class=""><mark class="highlight-blue"><strong><a href="https://lnf.suranet.com/AccessControlDB-war/index.html">Access Control (Data Base)</a></strong></mark></p><p id="ae11d6d9-bf9c-476b-bdef-107f773b61d1" class=""><mark class="highlight-blue"><strong><a href="https://ca-sd.suramericana.com/CAisd/pdmweb1.exe">CA Service Desk Manager</a></strong></mark></p><p id="f7aa36a9-e9a0-4f6b-9826-87a0ba79b916" class=""><mark class="highlight-blue"><strong><a href="https://srncsk8mspdn.suramericana.com.co:8443/kibana/app/kibana#/discover?_g=h@44136fa&amp;_a=h@22866d2">Kibana</a></strong></mark></p><p id="83122ebc-6c96-46f9-aca7-cb5654da86f0" class=""><mark class="highlight-blue"><strong><a href="https://p8app.suranet.com/navigator/">P8</a></strong></mark></p><p id="1f7efe18-6410-47c8-9b57-2d86d368ab11" class=""><mark class="highlight-blue"><strong><a href="https://www.somossura.com/">Somos Sura</a></strong></mark></p><p id="cfe4351b-1fd8-4eab-838c-51f27afc7557" class="">
+</p></div><div id="041e5eb7-5b66-479d-b7e7-53f5b8c6e49c" style="width:33.33333333333333%" class="column"><h3 id="fa0a6acb-93f9-4a48-b85d-e524b9ebf598" class=""><mark class="highlight-blue">Environments</mark></h3><hr id="b5a3fb20-b412-4c2b-8350-3323addaff11"/><p id="ab78b665-8403-4bad-a622-30426e3b8147" class=""><mark class="highlight-blue"><strong><a href="http://localhost:8180/pc/PolicyCenter.do">Policy Center (Local)</a></strong></mark></p><p id="e933928d-3abf-4be6-abd4-2bc9a48019fb" class=""><mark class="highlight-blue"><strong><a href="https://labcoreseguros.suramericana.com/pc/PolicyCenter.do">Policy Center (Laboratory)</a></strong></mark></p><p id="f9a00d06-bfa8-42cd-88f3-58129145ebc0" class=""><mark class="highlight-blue"><strong><a href="https://coreseguros.suramericana.com/pc/PolicyCenter.do">Policy Center (Production)</a></strong></mark></p><p id="0217d7d6-3b06-4f8f-8659-1a121bed8a2a" class=""><mark class="highlight-blue"><strong><a href="https://labcoreseguros.suramericana.com/fnt-aseguramiento-ayv-hogar/cotizacion/DatosBasicos?">Cotizador (Laboratory)</a></strong></mark></p><p id="b7c910d8-6a79-4aed-baec-0235495e4164" class=""><mark class="highlight-blue"><strong><a href="http://localhost:8580/bc/BillingCenter.do">Billing Center (Local)</a></strong></mark></p><p id="9cad5c23-304b-4c8c-89e2-baad321a869a" class=""><mark class="highlight-blue"><strong><a href="https://labcoreseguros.suramericana.com/bc/BillingCenter.do">Billing Center (Laboratory)</a></strong></mark></p><p id="c5c0fcf0-0fba-4df1-ae79-bba6102e00b6" class=""><mark class="highlight-blue"><strong><a href="https://coreseguros.suramericana.com/bc/BillingCenter.do">Billing Center (Production)</a></strong></mark></p><p id="2336fe35-5d8b-4057-a165-23ac2eb335c7" class=""><mark class="highlight-blue"><strong><a href="https://rabbitmq.suramericana.com/rabbitmq/#/queues/seguros.vh/co.com.sura.masivos.empresariales.GeneracionDocumentosSolicitada.Queue">Rabbit CCM Document (Production)</a></strong></mark></p><p id="d3f88a7c-5413-4a8e-a965-b6e8293029f8" class="block-color-blue"><strong><a href="https://holmeslab.suramericana.com.co/en-US/account/login?return_to=%2Fen-US%2Fapp%2Fgroup_center%2Fsearch%3Fq%3Dsearch%2520index%253D%2522idx_siniestrointegral_err%2522%26display.page.search.mode%3Dfast%26dispatch.sample_ratio%3D1%26earliest%3D-15m%26latest%3Dnow%26sid%3D1701730465.41309">Splunk (LAB)</a></strong></p><p id="e22d80e4-58d2-468e-a966-f04ab21fba9b" class="block-color-blue"><strong><a href="https://holmes.suramericana.com.co/en-US/account/login?return_to=%2Fen-US%2Fapp%2Fgroup_center%2Fsearch%3Fq%3Dsearch%2520index%253D%2522idx_siniestrointegral_err%2522%26display.page.search.mode%3Dverbose%26dispatch.sample_ratio%3D1%26earliest%3D-1d%26latest%3Dnow%26sid%3D1709299480.6299520">Splunk (PDN)</a></strong></p><p id="71fd0e0d-e877-4a34-83fa-4f24b005aeb8" class="block-color-blue"><strong><a href="https://msgdllo.suramericana.com.co/#/exchanges/seguros.vh/seguros.siniestros.siniestrointegral">Rabbit (Develop)</a></strong></p><p id="87eb884e-04d6-428c-8a2d-8ea0b843922f" class="block-color-blue"><strong><a href="https://msglab.suramericana.com.co/#/exchanges/seguros.vh/seguros.siniestros.siniestrointegral">Rabbit (LAB)</a></strong></p><p id="a537d422-e4ef-4791-a140-b1eda286c398" class="block-color-blue"><strong><a href="https://msg.suramericana.com.co/#/">Rabbit (PDN)</a></strong></p><p id="c588c28b-d1ed-469f-8b69-a02701a52271" class="">
+</p></div></div><div id="c7e55903-6af3-47e5-b9b3-ba40b017d3d8" class="column-list"><div id="6149fc50-15b7-4ad9-abac-411cbe9398f3" style="width:50%" class="column"><h3 id="875af456-bb65-4eb0-b154-f5f62efe50f2" class="">General</h3><hr id="58067d2e-ca88-4fe4-9894-542a4128db36"/><ul id="c4161be7-932c-4d68-909d-62073d96374f" class="toggle"><li><details open=""><summary><strong>Users</strong></summary><p id="3176ccc8-cce5-4e5d-a4a5-f535407932e5" class=""><strong>Local User</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="d0273321-32e2-40a8-8751-5de74a568f1f" class="code"><code class="language-Plain Text">User: su
+Password: gw</code></pre><hr id="0d2aa217-bedb-4ffc-9b78-0207866e6f3f"/><p id="957ae029-812c-41f3-87e2-95def89cdfeb" class=""><strong>Laboratory Super User</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c7259dff-cf02-4a7c-a5b5-c5f3e4b5be01" class="code"><code class="language-Plain Text">User: suragwsu
+Password: sura2017</code></pre><p id="55f7e2d2-d251-404f-a270-6ff624c0861f" class=""><strong>Laboratory Adviser User</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="57a75a32-517a-450f-821d-970efdda94a6" class="code"><code class="language-Plain Text">User: adrisasa
+Password: suramericana2018</code></pre><hr id="8d3e5527-b677-4d4a-b489-2e5db14ba4f3"/><p id="412c8a10-83d9-47c9-abb8-9990d1056ad3" class=""><strong>Rabbit PDN User</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="a313bad7-3a21-43e3-8281-9cb9779b4f80" class="code"><code class="language-Plain Text">User: userCore
+Password: userCore</code></pre><p id="f97b12bd-6663-4baa-9459-54866ce91177" class=""><strong>Somos Sura - P8 User</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e88d8f5-35c2-45db-89d3-ea351bd23d95" class="code"><code class="language-Plain Text">User: luzpmoca
+Password: Operaci0n,2023*</code></pre><p id="d137ac8e-1d49-46db-bacb-f653e55786a0" class="">
+</p></details></li></ul><ul id="ed92ba33-f91a-4fad-9c4f-4c3113fe88f1" class="toggle"><li><details open=""><summary><strong>Policy Consumption Configuration</strong></summary><p id="de8aa85a-6104-473e-a394-a0bbb955d476" class="">Local Endpoint URL (POST)</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9f5fe318-6fa6-4c08-9c64-939f77ae3c89" class="code"><code class="language-Plain Text">http://localhost:8180/pc/service/edge/policy/commercialPackage</code></pre><p id="c758a26f-e020-4240-8cea-c6b74d4e0339" class="">Local Headers</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b212a5d3-fae1-419d-9634-b71f7e5a8bd0" class="code"><code class="language-Plain Text">Content-Type : application/json
+Authorization : Basic c3U6Z3c=</code></pre><p id="68b0537b-e3f0-409f-bfa4-4fa1d3dcb67a" class="">Local Basic Auth</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="83f2ef79-221d-4908-b850-22e495aa0900" class="code"><code class="language-Plain Text">Username: su
+Password: gw</code></pre><hr id="69e8de75-6853-46c4-8386-e230a0149534"/><p id="6475e9a0-ad3e-4263-a760-b60df48e22bb" class="">Laboratory Endpoint URL (POST)</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="185650ce-08f1-48b9-a402-0db350fb8882" class="code"><code class="language-Plain Text">http://labcoreseguros.suramericana.com/pc/service/edge/policy/commercialPackage</code></pre><p id="7ccac657-84d4-4849-9297-f3b93b06f736" class="">Laboratory Headers</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="68a58b3d-ea65-43e5-9fcc-05a3c24131fd" class="code"><code class="language-Plain Text">Content-Type : application/json
+Authorization : Basic dXNlckVkZ2VHQzp1c2VyRWRnZUdD</code></pre><p id="8e606635-fd9a-4658-8bed-c104b3f3fa0b" class="">
+</p></details></li></ul></div><div id="ad6b9ef0-e162-40b3-bb4e-a91423d6c1eb" style="width:50%" class="column"><h3 id="660013ca-724e-46eb-aa98-2de6df91dfba" class="">Configurations</h3><hr id="4a8430de-05cd-46bf-986f-ef0fc0682892"/><ul id="efb36d3f-d1ef-446f-b8f4-1207620f61b2" class="toggle"><li><details open=""><summary><strong>Rabbit</strong></summary><p id="6ce80b1b-b7e7-471d-a1d6-a6c5fd490f27" class="">Image</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1e84a363-1bdd-4e8e-8074-19cc7ae6b7a9" class="code"><code class="language-YAML">version: &quot;3.8&quot;
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+      RABBITMQ_DEFAULT_USER: &quot;guest&quot;
+      RABBITMQ_DEFAULT_PASS: &quot;guest&quot;
+      RABBITMQ_DEFAULT_VHOST: &quot;seguros.vh&quot;
+    ports:
+      - &quot;15672:15672&quot; 
+      - &quot;5672:5672&quot;
+  oracle-db:
+    image: wnameless/oracle-xe-11g-r2
+    ports:
+      - &quot;1537:1537&quot;
+  mongo-db:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+volumes:
+  mongodb_data_container:</code></pre><hr id="529a8ba4-c968-466c-9cd0-bd4de5ecc55b"/><p id="52f10c7e-a6af-45c7-a57f-e8bed01981ad" class="">Start Rabbit Container with Docker</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1893dfc3-4e06-4335-b803-603dc414a5aa" class="code"><code class="language-Shell">docker-compose -f rabbit.yml up -d</code></pre><p id="0a94ba9c-09d9-4831-8adc-a59885dca1d5" class="">Start Rabbit Container with Podman</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3a4b2369-b309-476f-a4c1-87fea3d86b45" class="code"><code class="language-Shell">podman-compose -f rabbit.yml up -d</code></pre><p id="0f902de0-b19b-4293-bf85-7858195bf351" class="">
+</p></details></li></ul><p id="c88ee0eb-7a1c-4cc7-b3bf-a9c164097916" class="">
+</p></div></div><div id="19a4005c-a1bd-4301-a682-83b803426afd" class="column-list"><div id="7d23ed93-f1a7-4724-9790-0adb896eb2a9" style="width:50%" class="column"><h3 id="35b54402-a75f-446e-bde3-84189405a9e7" class="">Basic Scripts</h3><hr id="8e7e71bd-8faf-4022-9bbb-5f979b9c9eab"/><ul id="bde70a72-d91f-4617-8617-21160b46d249" class="toggle"><li><details open=""><summary><strong>Clean Database</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="08105fa5-a396-4123-9db7-d51ebda74b0d" class="code"><code class="language-Shell">gwpc dev-dropdb</code></pre></details></li></ul><ul id="0a0f37d3-7ddd-427c-9c40-5d9201ef0329" class="toggle"><li><details open=""><summary><strong>Regenerate Project</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f3d15ce9-2e96-40a0-bdbc-0397faa0029a" class="code"><code class="language-Shell">gwpc regen-project</code></pre></details></li></ul><ul id="0b6316cb-983c-42d1-b5e6-74df396cbc3d" class="toggle"><li><details open=""><summary><strong>Regenerate Project and Sura Services</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="56053f13-590a-4fe9-8b09-12b1c28aeb85" class="code"><code class="language-Shell">gwpc sura.regen-project</code></pre></details></li></ul><ul id="ea96b9f6-b66e-4804-9b96-f456bc045ab8" class="toggle"><li><details open=""><summary><strong>Start Studio</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8346e209-d12d-4143-873a-a76ab036fe4a" class="code"><code class="language-Shell">gwpc studio</code></pre></details></li></ul><ul id="aa3fb133-94ca-4adf-b8c9-269d96984c0e" class="toggle"><li><details open=""><summary><strong>Regenerate Dictionary</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fc7bbc15-a252-47c2-88bf-a1ff1110d5b7" class="code"><code class="language-Shell">gwpc regen-dictionary</code></pre></details></li></ul><ul id="6a22171e-9534-48ed-a0f2-db6a76cfdbc5" class="toggle"><li><details open=""><summary><strong>Regenerate Documentation</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f087e7f1-c4e0-40d1-a2cd-c9e864c6c82f" class="code"><code class="language-Shell">gwpc regen-gosudoc</code></pre></details></li></ul><ul id="c1a23914-3144-41fe-bfcd-faa2e63ab001" class="toggle"><li><details open=""><summary><strong>Stop Server</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c17fe3eb-c609-49ed-99cd-61053a71c83f" class="code"><code class="language-Shell">gwpc dev-stop</code></pre></details></li></ul><ul id="70d13b29-104c-4cd5-8245-af5c5f344bde" class="toggle"><li><details open=""><summary><strong>Start Server</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="32c2dc4d-f1d0-4bdb-b046-b86b68d6820c" class="code"><code class="language-Shell">gwpc dev-start</code></pre></details></li></ul><ul id="e9679158-f3b5-49b4-977b-bb7f44c5afe6" class="toggle"><li><details open=""><summary><strong>Regenerate WSDL Services</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="68981e3f-c3b0-4c17-a9f1-b8889cbcb08d" class="code"><code class="language-Shell">gwpc regen-wsi-local</code></pre></details></li></ul><ul id="4a7aecb8-b8fa-43e8-9c46-1b1111949b0d" class="toggle"><li><details open=""><summary><strong>Static Analyzer</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2aecb761-9d59-4082-a7d6-5e5755286973" class="code"><code class="language-Shell">gwpc sura.gosu-codenarc</code></pre></details></li></ul><ul id="025885fc-adfe-4ae4-8d73-10973d72f5ae" class="toggle"><li><details open=""><summary><strong>Static Analyzer For Tests</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6f76e3ec-5dd4-4b37-b785-b9d352707801" class="code"><code class="language-Shell">gwpc sura.gosu-codenarc-test</code></pre></details></li></ul></div><div id="9ff09a4c-dc49-4639-8099-cc892b1af441" style="width:50%" class="column"><h3 id="24b8f2e4-ba6a-4992-ad06-1a95b4667a4e" class="">Utility</h3><hr id="3ba268c3-2392-415e-8262-68f8904fc83c"/><ul id="1b930cfd-0d31-465c-98ac-4e2bd7b38b98" class="toggle"><li><details open=""><summary><strong>Print a Class</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="037a81dc-80ec-4ad4-9b3e-73ac1eba3f29" class="code"><code class="language-Kotlin">print(ClassReference.Type.Source)</code></pre></details></li></ul><ul id="6c96726a-583c-435f-a8ec-9e01d882a3fc" class="toggle"><li><details open=""><summary><strong>Open Internal Tools in Policy</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3a8a5041-23fc-4ca1-99b5-21ed85f80c9b" class="code"><code class="language-Plain Text">ALT + SHIFT + T</code></pre></details></li></ul><ul id="bd3dea35-6cb1-458b-b9e3-50d0b4134b2b" class="toggle"><li><details open=""><summary><strong>Update PCFS in Policy</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b91a7863-3e10-4816-9217-a6d9674a6fe8" class="code"><code class="language-Plain Text">ALT + SHIFT + L</code></pre></details></li></ul><ul id="6351e0f3-3be5-43dc-9953-8ad628a550a3" class="toggle"><li><details open=""><summary><strong>Open PCF in IDE</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9b0eaf4f-3ca7-4940-a9fa-85d8e040b7e5" class="code"><code class="language-Plain Text">ALT + SHIFT + E</code></pre></details></li></ul><ul id="8df61364-8398-47be-8c76-55d78de0d390" class="toggle"><li><details open=""><summary><strong>Code that marks an specific error in the Azure Trace</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="75a3bbfd-d529-4813-bcf2-1d1c0e3a0e2a" class="code"><code class="language-Plain Text">ERROR ABC</code></pre></details></li></ul><ul id="e663617b-1534-47ca-ba34-37f918f8abd9" class="toggle"><li><details open=""><summary><strong>Print JSON Changes to issue locally</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b149ebb8-3f84-4cba-9aed-1ed7fdc38a16" class="code"><code class="language-JSON">producerCode: 4999
+officeCode: 4030
+state: CO05
+city: 05001000
+cityName: 05001000
+selectedPaymentPlan: pctest:4
+groupPaymentPlan: pctest:4</code></pre></details></li></ul><ul id="b2a2c9ca-f474-4cf7-b0de-1aca369a8762" class="toggle"><li><details open=""><summary><strong>Line when Service is UP</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7db0df32-d60f-4701-9186-0ead3f3d7f8d" class="code"><code class="language-Plain Text">[ServerStatusService] is now READY</code></pre></details></li></ul><ul id="a13993ea-3853-4c4c-8116-ebd4523eb8aa" class="toggle"><li><details open=""><summary><strong>Guidewire Queues</strong></summary><p id="042d9411-c1f8-45cc-8405-0b96a5ebd291" class=""><strong>Policy Center</strong></p><ul id="a170ef58-c48e-459c-aca3-15d89982e8eb" class="bulleted-list"><li style="list-style-type:disc"><strong>69:</strong> Assistances</li></ul><ul id="32d4ceb1-b062-4a6b-a286-dd2d0ede4f97" class="bulleted-list"><li style="list-style-type:disc"><strong>66:</strong> Billing</li></ul><ul id="9cef7af3-154d-44ce-9759-b4dcc07ad88d" class="bulleted-list"><li style="list-style-type:disc"><strong>01: </strong>Bindings</li></ul></details></li></ul><ul id="67b8212b-0bce-4ad6-b147-d31102ff0da9" class="toggle"><li><details open=""><summary><strong>Requirement Service</strong></summary><p id="1e22e45f-7d61-4a79-a20b-016eb21f680d" class=""><strong>File</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4a4f4b1b-8a11-4eaa-a9d4-8f192a48ea6e" class="code"><code class="language-Kotlin">import.gen.WServiceMocks_Ext.xml</code></pre><p id="23eca3cf-7b71-49df-ab05-29de90b155ed" class=""><strong>Code</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b8f39ee7-25e6-4a88-bcff-7afde8b2b665" class="code"><code class="language-XML">&lt;WService_Ext public-id=&quot;pc:26&quot;&gt;
+	&lt;Exchange/&gt;
+	&lt;Password/&gt;
+	&lt;Queue/&gt;
+	&lt;Localization&gt;http://appslab.suranet.com:80/requisitos/services/WsActualizacionesRequisitosNoSeguro?wsdl&lt;/Localization&gt;
+	&lt;LocalizationType&gt;Endpoint&lt;/LocalizationType&gt;
+	&lt;RoutingKey/&gt;
+	&lt;SecurityType&gt;none&lt;/SecurityType&gt;
+	&lt;ServiceName&gt;ActualizacionesRequisitosWEBService&lt;/ServiceName&gt;
+	&lt;User_Ext/&gt;
+	&lt;Version&gt;1.0&lt;/Version&gt;
+&lt;/WService_Ext&gt;
+&lt;WService_Ext public-id=&quot;pc:27&quot;&gt;
+	&lt;Exchange/&gt;
+	&lt;Password/&gt;
+	&lt;Queue/&gt;
+	&lt;Localization&gt;http://appslab.suranet.com:80/requisitos/services/WsConsultasRequisitosNoSeguro?wsdl&lt;/Localization&gt;
+	&lt;LocalizationType&gt;Endpoint&lt;/LocalizationType&gt;
+	&lt;RoutingKey/&gt;
+	&lt;SecurityType&gt;none&lt;/SecurityType&gt;
+	&lt;ServiceName&gt;ConsultasRequisitosWebService&lt;/ServiceName&gt;
+	&lt;User_Ext/&gt;
+	&lt;Version&gt;1.0&lt;/Version&gt;
+&lt;/WService_Ext&gt;</code></pre></details></li></ul><ul id="5a573f5d-b142-436a-abfe-2709cd4a870d" class="toggle"><li><details open=""><summary><strong>PEP Service</strong></summary><p id="dc9b89a4-a996-4ba1-a917-7e832b83ab57" class=""><strong>File</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="96241ebc-d3cc-42fc-af13-63e455008a99" class="code"><code class="language-Kotlin">import.gen.WServiceMocks_Ext.xml</code></pre><p id="82d63093-f759-40b1-9bfd-6635432b790d" class=""><strong>Code</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="4f668301-5a7a-4bf7-9c94-5d2bf2f6ba3d" class="code"><code class="language-XML">&lt;WService_Ext public-id=&quot;pc:1&quot;&gt;
+    &lt;Exchange/&gt;
+    &lt;Password&gt;luzevamo&lt;/Password&gt;
+    &lt;Queue/&gt;
+    &lt;Localization&gt;http://localhost:8089/&lt;/Localization&gt;
+	&lt;LocalizationType&gt;Endpoint&lt;/LocalizationType&gt;
+    &lt;RoutingKey/&gt;
+    &lt;SecurityType&gt;wssup&lt;/SecurityType&gt;
+    &lt;ServiceName&gt;ServiciosClientesPEPWSImplService&lt;/ServiceName&gt;
+    &lt;User_Ext&gt;luzevamo&lt;/User_Ext&gt;
+    &lt;Version&gt;1.0&lt;/Version&gt;
+&lt;/WService_Ext&gt;</code></pre></details></li></ul><ul id="f434598d-f5f1-4d54-a239-f036b2d7f98e" class="toggle"><li><details open=""><summary><strong>Consultable Risks Service</strong></summary><p id="ce93c1d6-1ed5-4e80-bae8-5632cdb863f9" class=""><strong>File</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="906f6ecd-c6a6-44ef-b922-c3bcd49cdb8a" class="code"><code class="language-Kotlin">import.gen.WServiceMocks_Ext.xml</code></pre><p id="0a05cb04-694a-48c0-98b9-3e16b48938df" class=""><strong>Code</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fe8373ad-d623-40c1-8764-fcf775f75ab4" class="code"><code class="language-XML">&lt;WService_Ext public-id=&quot;pc:75&quot;&gt;
+    &lt;Exchange/&gt;
+    &lt;Password/&gt;
+    &lt;Queue/&gt;
+    &lt;Localization&gt;http://localhost:8088/regulacion/secureCommand/validarriesgosconsultables&lt;/Localization&gt;
+    &lt;LocalizationType&gt;EndPoint&lt;/LocalizationType&gt;
+    &lt;RoutingKey/&gt;
+    &lt;SecurityType&gt;none&lt;/SecurityType&gt;
+    &lt;ServiceName&gt;ConsultableRiskService&lt;/ServiceName&gt;
+    &lt;Version&gt;1.0&lt;/Version&gt;
+    &lt;User_Ext&gt;Basic Y290aXphZG9ybGFiOmNvdGl6YWRvcmxhYg==&lt;/User_Ext&gt;
+&lt;/WService_Ext&gt;</code></pre></details></li></ul></div></div><div id="01f6112d-8e07-42a9-baeb-0b61173b5658" class="column-list"><div id="f0d5ca07-4c0d-4106-be69-3ad1526fd22c" style="width:50%" class="column"><h3 id="381a59f5-acac-412e-aa77-1a2d69a70e3d" class="">Specific Scripts</h3><hr id="83ddbe64-3cb9-4a46-b4e4-99ecd0291f3b"/><ul id="f0a0f6e2-d685-4947-b8aa-181f95ab1c94" class="toggle"><li><details open=""><summary><strong>Script: </strong>Buscar Poliza </summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="6464c63b-bb86-4908-8be7-315fd9ab5e29" class="code"><code class="language-Kotlin">uses gw.api.database.Query
+uses gw.api.database.Relop
+
+var policyNumber = &quot;XXXXXXXXXXX&quot;
+var policy = Policy.finder.findPolicyByPolicyNumber(policyNumber)
+
+print(&quot;Transaction ID: &quot; + policy.GroupID_Ext)
+
+var policies = Query.make(entity.Policy)
+    .compare(Policy#GroupID_Ext, Relop.Equals, policy?.GroupID_Ext)
+    .select()
+    .orderByDescending(\aPolicy -&gt; aPolicy.CreateTime)
+
+policies.each(\ aPolicy -&gt; {
+  var policyPeriod = aPolicy.LatestPeriod
+
+  if (policyPeriod?.isMasterPolicy()) {
+    print(&quot;Policy Type: &quot; + aPolicy.PolicyType_Ext)
+    print(&quot;Policy Number: &quot; + policyPeriod.PolicyNumber)
+    print(&quot;Job Number: &quot; + policyPeriod.Job.JobNumber)
+    print(&quot;Offering Type: &quot; + policyPeriod.Offering)
+  }
+
+  print(&quot;&quot;)
+
+  if (policyPeriod?.isRiskPolicy) {
+    var periods = Policy.finder.findPolicyByPolicyNumber(policyPeriod?.PolicyNumber).Periods
+
+    periods.each(\period -&gt; {
+      if (period.Status == typekey.PolicyPeriodStatus.TC_BOUND) {
+        var home = period?.CPLine?.CPLocations?.first().Home_Ext
+        print(&quot;Policy Type: &quot; + period?.Job?.Subtype)
+        print(&quot;Policy Number: &quot; + period.PolicyNumber)
+        print(&quot;Job Number: &quot; + policyPeriod.Job.JobNumber)
+        print(&quot;Offering Type: &quot; + policyPeriod.Offering)
+        print(&quot;Property Type: &quot; + home?.PropertyType_Ext)
+        print(&quot;&quot;)
+      }
+    })
+  }
+})</code></pre></details></li></ul><ul id="16879a8d-32d8-49ac-ad4c-376ebb9c75a2" class="toggle"><li><details open=""><summary><strong>Script: </strong>Generar JSON CCM</summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f6df82e0-8ca6-4562-b769-9ae2527a0a02" class="code"><code class="language-Kotlin">uses sura.pc.ccmsender.plugin.messaging.CCMDocumentSenderProcessor
+
+var _policiesNumbers = {
+    &quot;XXXXXXXXXXX&quot;
+}
+
+_policiesNumbers.each(\ policyNumber -&gt; {
+  var _policyPeriod = Policy.finder.findPolicyByPolicyNumber(policyNumber)
+      .Periods.orderByDescending(\ period -&gt; period.PeriodEnd)
+      .firstWhere(\ period -&gt; period.Job.Subtype == typekey.Job.TC_RENEWAL and period.Status == TC_BOUND)
+  
+  if (_policyPeriod != null) {
+    var _ccmSender = new CCMDocumentSenderProcessor()
+    var payloadForCCM = _ccmSender.generateDataForPayload(_policyPeriod, false)
+    var mapper = _ccmSender.createObjectMapper()
+    
+    print(mapper.writeValueAsString(payloadForCCM))
+  } else {
+    print(&quot;No se encontró renovación expedida para: ${policyNumber}&quot;)
+  }
+  print(&quot;&quot;)
+})</code></pre></details></li></ul><ul id="086c26f1-67c3-40eb-ac31-70f5a05291be" class="toggle"><li><details open=""><summary><strong>Get a Policy by a Policy Number</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7fdfd6ab-bc83-4202-9592-68fa6510bef0" class="code"><code class="language-Kotlin">uses gw.api.database.Query
+uses gw.api.database.Relop
+
+var policyNumber = &quot;XXXXXXXXXXXX&quot;
+var policy = Policy.finder.findPolicyByPolicyNumber(policyNumber)
+
+print(&quot;Transaction ID: &quot; + policy.GroupID_Ext)
+
+var policies = Query.make(entity.Policy)
+    .compare(Policy#GroupID_Ext, Relop.Equals, policy?.GroupID_Ext)
+    .select()
+    .orderByDescending(\aPolicy -&gt; aPolicy.CreateTime)
+
+print(&quot;Number of Policies: &quot; + policies.Count)
+
+policies.each(\ aPolicy -&gt; {
+  var policyPeriod = aPolicy.LatestPeriod
+  var isTransversalRiskPES = policyPeriod.isTransversalRiskPES() ? &quot; and it is a Transversal Risk&quot; : &quot;&quot;
+
+  print(&quot;&quot;)
+  print(&quot;Policy Type: &quot; + aPolicy.PolicyType_Ext + isTransversalRiskPES)
+  print(&quot;Policy Number: &quot; + policyPeriod.PolicyNumber)
+  print(&quot;Period Status: &quot; + policyPeriod.Locked)
+  print(&quot;Migration: &quot; + policyPeriod.Policy.Migration_Ext)
+  print(&quot;Job Number: &quot; + policyPeriod.Job.JobNumber)
+  print(&quot;Offering Type: &quot; + policyPeriod.Offering)
+})</code></pre></details></li></ul><ul id="f7ac0087-8209-446f-a7f9-4451a5179d86" class="toggle"><li><details open=""><summary><strong>Get Policies to migrate</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="66521443-ce7e-4425-ae49-75120ee2afa1" class="code"><code class="language-Kotlin">uses sura.pc.batch.home.HomeMarkMigrationStateWorkQueue
+
+var _migration = new HomeMarkMigrationStateWorkQueue()
+
+var _result = _migration.getTargetsMastersPolicies()
+
+print(&quot;&quot; + _result.Count)
+print(&quot;&quot;)
+
+var _listResult = _result.toList()
+
+_listResult.each(\elt -&gt; {
+  print(&quot;-----------------------------------------------------&quot;)
+  print(&quot;Group ID: &quot; + elt.GroupID_Ext)
+  print(&quot;Policy Number: &quot; + elt.Periods.last().PolicyNumber)
+  print(&quot;Status: &quot; + elt.Periods.last().Status)
+  print(&quot;Job Number: &quot; + elt.Periods.last().Job.JobNumber)
+  print(&quot;Term Type: &quot; + elt.Periods.last().TermType)
+  print(&quot;&quot;)
+}</code></pre></details></li></ul><ul id="bf36f70c-8567-4e3d-8861-05bde5ee161c" class="toggle"><li><details open=""><summary><strong>Modify the Data of a Contact</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="20d6dd8b-ce0f-44b0-ba77-4d70b19e5b3b" class="code"><code class="language-Kotlin">uses gw.api.database.Query
+uses gw.api.database.Relop
+uses java.lang.Exception
+
+var _contact = searchContactInPolicy(&quot;XXXXXXXX&quot;)
+
+print(&quot;PrimaryPhone: &quot; + _contact.PrimaryPhone)
+
+update(_contact)
+
+function update(contact : Contact) {
+  gw.transaction.Transaction.runWithNewBundle(\bundle -&gt; {
+    try {
+      bundle.add(contact)
+
+      contact.PrimaryPhone = typekey.PrimaryPhoneType.TC_HOME
+
+      print(&quot;OK&quot;)
+    } catch(exception : Exception) {
+      print(exception)
+    }
+  }, &#x27;su&#x27;)
+}
+
+function searchContactInPolicy(documentNumber : String) : Contact {
+  var contact = Query.make(Contact)?.compare(Contact#TaxID, Relop.Equals, documentNumber)?.select()?.first()
+
+  print(contact)
+
+  return contact
+}</code></pre></details></li></ul><ul id="4387a7e5-0558-48ae-9dc0-6037aa4da59e" class="toggle"><li><details open=""><summary><strong>Pending Batch Processes</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f168975b-8d22-452d-8b7e-8ed65aa6a1ec" class="code"><code class="language-Kotlin">uses gw.api.database.Query
+uses gw.api.util.DateUtil
+
+var query = Query.make(BPCPolicyRecord_Ext)
+    .withDistinct(true)
+    .join(BPCPolicyRecord_Ext#Batch)
+    .compare(BPCBatch_Ext#Completed, Equals, false)
+    .compare(BPCBatch_Ext#TargetDate, LessThanOrEquals, DateUtil.currentDate())
+
+var result = query.select()
+
+print(&quot;Pending Batch Process&quot;)
+
+result.each(\ aResult -&gt; {
+  var batch = aResult.Batch
+  var policy = aResult.Policy
+  var policyPeriod = policy.LatestPeriod
+
+  print(&quot;&quot;)
+  print(&quot;Batch ID: &quot; + batch.BatchCode)
+  print(&quot;It is Completed: &quot; + batch.Completed)
+  print(&quot;Policy Type: &quot; + policy.PolicyType_Ext)
+  print(&quot;Policy Number: &quot; + policyPeriod.PolicyNumber)
+})</code></pre></details></li></ul><ul id="f2eacb6e-418d-4b02-bc44-45f4865517a9" class="toggle"><li><details open=""><summary><strong>SQL Query to get Transactions of a Policy</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="9e20b73f-2899-4586-be0b-2d0339d9c8e0" class="code"><code class="language-SQL">SELECT STATUS,
+       e.PUBLICID,
+       e.createtime,
+       LASTUPDATE,
+       json_value(RESPONSE format JSON, &#x27;$.data.riskId&#x27;) AS numeropoliza,
+       json_value(REQUEST format JSON, &#x27;$.data.params[0].policyNumber&#x27;) AS Poliza,
+       json_value(RESPONSE format JSON, &#x27;$.data.result.policyInfo.jobNumber&#x27;) AS Job,
+       json_value(RESPONSE format JSON, &#x27;$.data.error.data.jobNumber&#x27;) AS Job,
+       JSON_VALUE(REQUEST FORMAT JSON, &#x27;$.data.params[0].lobs.personalAuto.vehicles[0].vin&#x27;) AS PLACA_ENVIADA,
+       &quot;METHOD&quot;,
+       REQUEST,
+       RESPONSE,
+       JSON_VALUE(REQUEST format JSON, &#x27;$.data.id&#x27;) GC_ID,
+       id,
+       JSON_VALUE(RESPONSE format JSON, &#x27;$.data.responseType&#x27;) RESPONSE_TYPE,
+       JSON_VALUE(RESPONSE format JSON, &#x27;$.data.error.message&#x27;) ERROR_MESSAGE
+FROM ADM_GWPC.PCX_GROUPCENTERMESSAGE_EXT e
+WHERE JSON_VALUE(REQUEST format JSON, &#x27;$.data.id&#x27;) in (&#x27;03059867220718452706&#x27;)
+  AND lastupdate &gt; sysdate - 1
+ORDER BY LASTUPDATE DESC;</code></pre></details></li></ul><ul id="f3370e11-8522-41f8-9af8-9e79f35ff961" class="toggle"><li><details open=""><summary><strong>Get Transactions of a Quote Trace in Group Center</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="80340ce9-b3c4-4342-850f-a3d523c6a768" class="code"><code class="language-Kotlin">uses gw.api.database.Query
+uses gw.api.database.Relop
+uses java.util.Date
+uses org.json.JSONObject
+uses org.json.JSONException
+uses gw.api.database.IQueryResult
+
+var transactionID = &quot;XXXXXXXXXXXXXXXXXXXX&quot;
+var publicMessageID = &quot;pc:XXXXXXX&quot;
+var showTransactionJSON = true
+
+transJson(showTransactionJSON)
+
+function transJson(flag : Boolean) {
+  if (flag) {
+    getTransactionReportByGroupID(transactionID)
+  } else {
+    getMessageDetailsByPublicID(publicMessageID)
+  }
+}
+
+function getTransactionReportByGroupID(groupID : String) {
+  print(&quot;Transaction Report: &quot; + groupID)
+
+  var results = getMessagesByGroupID(groupID)
+
+  printTransactionReportByMessageResult(results)
+}
+
+function getMessagesByGroupID(groupID : String) : IQueryResult&lt;GroupCenterMessage_Ext, GroupCenterMessage_Ext&gt; {
+  return Query.make(GroupCenterMessage_Ext)
+      .compare(GroupCenterMessage_Ext#RequestId, Relop.Equals, groupID)
+      .select()
+      .orderByDescending(\row -&gt; row.CreateTime)
+}
+
+function printTransactionReportByMessageResult(results : IQueryResult&lt;GroupCenterMessage_Ext, GroupCenterMessage_Ext&gt;) {
+  print(&quot;Number of messages found: &quot; + results.Count)
+  print(&quot;State     &quot; + &quot;Public ID               &quot; + &quot;Creation Date                      &quot; + &quot;Ending Date                        &quot; + &quot;Method                    &quot; + &quot;Risk ID                                             &quot; + &quot;Job Number       &quot; +  &quot;UWIssue  &quot; +  &quot;Inconsistency&quot;)
+  results?.each(\result -&gt; {
+    print(result.Status + &quot;          &quot; + result.PublicID + &quot;          &quot; + getFormatDate(result.CreateTime) + &quot;          &quot; + getFormatDate(result.LastUpdate) + &quot;          &quot; + result.Method + calculateSpaces(result.Method, 19) + result.RiskId + calculateSpaces(result.Method, 36) + extractJobNumber(result) + &quot;          &quot; + extractUWIssuwMessage(result) + &quot;          &quot; + extractInconsistency(result))
+  })
+}
+
+function calculateSpaces(element : String, maximumLength : int) : String {
+  var numberSpaces = maximumLength - element.length + 10
+  var spaces = &quot;&quot;
+  var it = 0
+
+  while (it &lt; numberSpaces) {
+    spaces = spaces + &quot; &quot;
+    it++
+  }
+
+  return spaces
+}
+
+function extractJobNumber(result : GroupCenterMessage_Ext) : String {
+  var requestJson = new JSONObject(transformBlobToString(result.Response))
+  var camp = &quot;null&quot;
+
+  try {
+    camp = requestJson?.getJSONObject(&quot;data&quot;)?.getJSONObject(&quot;result&quot;)?.getJSONObject(&quot;policyData&quot;)?.get(&quot;jobNumber&quot;).toString()
+  } catch(exception : JSONException) {
+    print(exception.Message)
+  }
+  return camp
+}
+
+function extractUWIssuwMessage(result : GroupCenterMessage_Ext) : String {
+  var requestJson = new JSONObject(transformBlobToString(result.Response))
+  var camp = &quot;null&quot;
+
+  try {
+    camp = requestJson?.getJSONObject(&quot;data&quot;)?.getJSONObject(&quot;result&quot;)?.getJSONObject(&quot;quotingData&quot;)?.getJSONArray(&quot;uWIssues&quot;).getJSONObject(0).get(&quot;description&quot;).toString()
+  } catch(exception : JSONException) {
+    print(exception.Message)
+  }
+
+  return camp
+}
+
+function extractInconsistency(result : GroupCenterMessage_Ext) : String {
+  var requestJson = new JSONObject(transformBlobToString(result.Response))
+  var camp = &quot;null&quot;
+
+  try {
+    camp = requestJson?.getJSONObject(&quot;data&quot;)?.getJSONObject(&quot;result&quot;)?.getJSONObject(&quot;quotingData&quot;)?.getJSONArray(&quot;inconsistencyList&quot;).getJSONObject(0).get(&quot;description&quot;).toString()
+  } catch(exception : JSONException) {
+    print(exception.Message)
+  }
+
+  return camp
+}
+
+function getMessageDetailsByPublicID(publicId: String) {
+  var result = Query.make(GroupCenterMessage_Ext).compare(GroupCenterMessage_Ext#PublicID, Relop.Equals, publicId).select()
+  
+  printMessageDetailsByQueryResult(result)
+}
+
+function printMessageDetailsByQueryResult(results : IQueryResult&lt;GroupCenterMessage_Ext, GroupCenterMessage_Ext&gt;) {
+  results?.each(\result -&gt; {
+    print(&quot;Messages: &quot; + result.Status + &quot; &quot; + result.PublicID + &quot; &quot; + getFormatDate(result.CreateTime) + &quot; &quot; + getFormatDate(result.LastUpdate) + &quot;     &quot; + result.Method)
+    print(&quot;\n----------------------Request----------------------------&quot;)
+    print(transformBlobToString(result.Request))
+    print(&quot;\n----------------------Response----------------------------&quot;)
+    print(transformBlobToString(result.Response))
+  })
+}
+
+function getFormatDate(date : Date) : String {
+  return date.format(&quot;yyyy-MM-dd HH:mm:ss&quot;)
+}
+
+function transformBlobToString(blob: Blob): String {
+  var payloadString = new String(org.apache.commons.io.IOUtils.toString(blob.toInputStream()))
+  
+  return payloadString
+}</code></pre></details></li></ul><ul id="2756ac10-5359-499e-b196-f196bd032907" class="toggle"><li><details open=""><summary><strong>Policy Change Process</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="be24d382-befc-488a-8fa4-2ccd595662a4" class="code"><code class="language-Kotlin">uses gw.webservice.pc.pc800.job.PolicyChangeAPI
+uses java.lang.Exception
+
+var policyNumber = &quot;XXXXXXXXXXXX&quot;
+var jobNumber = &quot;&quot;
+
+print(&quot;Start Policy Change&quot;)
+
+gw.transaction.Transaction.runWithNewBundle(\bundle -&gt; {
+  try {
+    var policy = Policy.finder.findPolicyByPolicyNumber(policyNumber)
+    var policyChange = new PolicyChangeAPI()
+
+    jobNumber = policyChange.startManualPolicyChange(policyNumber, policy.LatestPeriod.PeriodStart)
+
+    var policyPeriod = Job.finder.findJobByJobNumber(jobNumber).SelectedVersion
+
+    policyPeriod = bundle.add(policyPeriod)
+    policyPeriod?.Job.Description = &quot;Se realiza modificación&quot;
+    
+    print(&quot;Start Quote&quot;)
+    
+    policyPeriod.PolicyChangeProcess.requestQuote()
+    
+    print(&quot;End Quote&quot;)
+    print(&quot;&quot;)
+    print(&quot;Start Bind&quot;)
+    
+    policyPeriod.PolicyChangeProcess.bind()
+    
+    print(&quot;End Bind&quot;)
+  }catch(exception : Exception) {
+    print(exception.Message)
+  }
+}, &quot;su&quot;)
+
+print(&quot;End Policy Change - Job Number: &quot; + jobNumber)</code></pre></details></li></ul><ul id="b319834f-45fa-40f0-8b96-e7f740ffd556" class="toggle"><li><details open=""><summary><strong>Cancellation Process</strong></summary><p id="c99cd1eb-8795-4de9-b5ad-6b4bc40efbfc" class=""><strong>Quote</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="392e7ea7-025c-4d12-b771-9f54dabf7005" class="code"><code class="language-Kotlin">uses gw.api.database.Query
+uses gw.api.database.Relop
+
+var _policyNumber = &quot;XXXXXXXXXXXX&quot;
+var _policiesToCancel = getPoliciesToCancel(_policyNumber)
+var _cancellationDate = &quot;17/05/2022 00:01:00&quot;.toDate() // Format: DD/MM/YYYY
+
+_policiesToCancel.each( \ policyPeriod -&gt; {
+  gw.transaction.Transaction.runWithNewBundle(\bundle -&gt; {
+    bundle.add(policyPeriod)
+
+    var slice = policyPeriod.getSlice(_cancellationDate)
+    var canCancel = slice.Policy.canStartCancellation(_cancellationDate)
+
+    print(&#x27;EditEffectiveDate: &#x27; + _cancellationDate.format(&#x27;dd/MM/yyyy HH:mm:ss&#x27;))
+
+    if(canCancel == null) {
+      print(&quot;&quot;)
+      print(&quot;¿Can Cancel?: &quot; + canCancel)
+
+      var aCancellation = new Cancellation()
+
+      aCancellation.Source = CancellationSource.TC_CARRIER
+      aCancellation.Description = &quot;Cancellation Reason&quot;
+      aCancellation.CancelReasonCode = ReasonCode.TC_ERRORPROCESSING_EXT
+      aCancellation.startJob(slice.Policy, _cancellationDate, CalculationMethod.TC_PRORATA)
+      aCancellation.UserLogged_Ext = policyPeriod.Job.UserLogged_Ext
+
+      print(slice.PolicyNumber + &quot; was cancelled - Job Number: &quot; + aCancellation.JobNumber)
+    }else {
+      print(slice.PolicyNumber + &quot; can not be cancelled.&quot;)
+    }
+  }, &#x27;su&#x27;)
+})
+
+function getPoliciesToCancel(aPolicyNumber : String) : ArrayList&lt;PolicyPeriod&gt; {
+  var policiesToCancel : ArrayList&lt;PolicyPeriod&gt; = {}
+  var policy = Policy.finder.findPolicyByPolicyNumber(aPolicyNumber)
+  var policies = Query.make(entity.Policy)
+      .compare(Policy#GroupID_Ext, Relop.Equals, policy?.GroupID_Ext)
+      .select()
+      .orderByDescending(\aPolicy -&gt; aPolicy.CreateTime)
+
+  policies.each(\ aPolicy  -&gt; policiesToCancel.add(aPolicy.LatestBoundPeriod))
+
+  return policiesToCancel
+}</code></pre><p id="8856318c-f444-484d-997a-02f666486212" class=""><strong>Bind</strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fdc2d3c8-531f-4230-8401-58fc09aef24e" class="code"><code class="language-Kotlin">var jobsToBound = {&quot;XXXXXXXXXX&quot;, &quot;XXXXXXXXXX&quot;}
+
+jobsToBound.each(\ jobToBound -&gt; {
+  var transaction = Job.finder.findJobByJobNumber(jobToBound).SelectedVersion
+  
+  gw.transaction.Transaction.runWithNewBundle(\ bundle -&gt; {
+    bundle.add(transaction)
+    
+    try {
+      transaction.markValidQuote()
+      transaction.CancellationProcess.cancelImmediately()
+      
+      print(&quot;¿Job &quot; + transaction.Job.JobNumber + &quot; was cancelled?: &quot; + transaction.Canceled)
+    } catch (e : java.lang.Exception) {
+      print(&quot;Second Try&quot;)
+      
+      transaction.markValidQuote()
+      transaction.CancellationProcess.cancelImmediately()
+    }
+  }, &quot;su&quot;)
+})</code></pre></details></li></ul><ul id="c1bc5d57-09e6-4943-96cd-3689293512e5" class="toggle"><li><details open=""><summary><strong>Renewal Process</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5e121fd0-fa53-456d-8b6c-cd4d613ff1c8" class="code"><code class="language-Kotlin">uses sura.pc.batch.automaticrenewal.AutomaticRenewalProcess
+uses sura.pc.batch.automaticrenewal.query.MasterPoliciesToRenew
+
+var policyNumber = &quot;XXXXXXXXXXXX&quot;
+var policies = new MasterPoliciesToRenew().findPoliciesMaster()
+var periodToRenew = policies.firstWhere(\ period -&gt; period?.PolicyNumber == policyNumber)
+
+print(&quot;Policy Master to Renew: &quot; + periodToRenew)
+print(&quot;&quot;)
+
+gw.transaction.Transaction.runWithNewBundle(\ bundle -&gt; {
+  print(&quot;Start Process&quot;)
+  new AutomaticRenewalProcess().process(periodToRenew)
+}, User.util.UnrestrictedUser)
+print(&quot;End Process&quot;)</code></pre></details></li></ul><ul id="cffe04e6-a51c-4bd9-8ec8-e94b7218a366" class="toggle"><li><details open=""><summary><strong>Block Period</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="1bd76ee1-48a9-4636-9eae-017c32ef98a2" class="code"><code class="language-Kotlin">uses java.lang.Exception
+
+var _period = Job.finder.findJobByJobNumber(&quot;XXXXXXXXXX&quot;).SelectedVersion
+
+gw.transaction.Transaction.runWithNewBundle(\bundle -&gt; {
+  try {
+    bundle.add(_period)
+    _period.lockPolicyPeriod()
+    bundle.commit()
+  } catch(exception : Exception) {
+        print(exception)
+      }
+}, &#x27;su&#x27;)</code></pre></details></li></ul><ul id="127d2d6d-d27e-47f3-923b-fd9d23d64715" class="toggle"><li><details open=""><summary><strong>Close Job</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="33fc4a64-59b3-496b-b74a-d95fee5db77c" class="code"><code class="language-Kotlin">uses java.lang.Exception
+
+var job = Job.finder.findJobByJobNumber(&quot;&quot;)
+
+gw.transaction.Transaction.runWithNewBundle(\bundle -&gt; {
+  try {
+    var jobWithdraw = bundle.add(job)
+    jobWithdraw.withdraw()
+    print(&quot;Job: &quot; + job.JobNumber + &quot; Retirado&quot;)
+  } catch(exception : Exception) {
+    print(&quot;Job que fallo: &quot; + job.JobNumber + &quot; &quot; + exception.Message)
+  }
+}, &#x27;su&#x27;)</code></pre></details></li></ul></div><div id="f7e67c69-92c6-4111-a9f7-fd37ae008eb0" style="width:50%" class="column"><h3 id="bdcd3293-ad16-49b2-8a15-703f7a605bdf" class="">Batch Processes</h3><hr id="83787eb8-bfd6-4bcd-ba65-d5b55a9d17d9"/><ul id="a35de87f-2c3c-452b-8ffa-356854c520f7" class="toggle"><li><details open=""><summary><strong>Batch Process 1</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="3f5b56b2-a74d-48f8-8187-2bef26dbd908" class="code"><code class="language-Shell">ant -f &quot;C:\Guidewire\PolicyCenter\modules\ant\continuous-build.xml&quot; unit-tests-batch1</code></pre></details></li></ul><ul id="361a12f4-be65-486a-8ac0-522fb241932a" class="toggle"><li><details open=""><summary><strong>Batch Process 2</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0db642b5-895f-41ab-817d-a1964e5aac7e" class="code"><code class="language-Shell">ant -f &quot;C:\Guidewire\PolicyCenter\modules\ant\continuous-build.xml&quot; unit-tests-batch2</code></pre></details></li></ul><ul id="0a742212-0277-4e3e-9f6d-d46c7ea642d6" class="toggle"><li><details open=""><summary><strong>Batch Process 3</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="bdb6c613-48bc-4af1-b23f-126705deef86" class="code"><code class="language-Shell">ant -f &quot;C:\Guidewire\PolicyCenter\modules\ant\continuous-build.xml&quot; unit-tests-batch3</code></pre></details></li></ul><ul id="47efd32c-6abd-4693-bc75-ce9d483f321e" class="toggle"><li><details open=""><summary><strong>Batch Process 4</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="faf52abd-2d7e-4773-84af-aee0fac61936" class="code"><code class="language-Shell">ant -f &quot;C:\Guidewire\PolicyCenter\modules\ant\continuous-build.xml&quot; unit-tests-batch4</code></pre></details></li></ul><ul id="f76c69e6-29aa-4c34-a381-b980fe29b770" class="toggle"><li><details open=""><summary><strong>Batch Process 5</strong></summary><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="ad7f45eb-045e-4a5e-b629-aa805f87df7f" class="code"><code class="language-Shell">ant -f &quot;C:\Guidewire\PolicyCenter\modules\ant\continuous-build.xml&quot; unit-tests-batch5</code></pre></details></li></ul><p id="62cf5021-d930-4d7f-a09c-9994fe6007ed" class="">
+</p></div></div><p id="f61cccda-59f2-463c-b888-15b1ab0644d0" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
